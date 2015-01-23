@@ -33,11 +33,10 @@
 
         console.log = function () {
             buffer[buffer.length] = arguments[0];
-            og_log('Trapping console output to buffer. call console.dump() to save, console.release() to stop');
-            return 'Trapping console output to buffer. call console.dump() to save, console.release() to stop';
         }.bind(this);
         console.warn = console.log;
         console.error = console.log;
+        og_log.call(console, 'Trapping console output to buffer. call console.dump() to save, console.release() to stop');
     };
 
     console.dump = function(filename){
